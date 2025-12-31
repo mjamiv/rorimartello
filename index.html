@@ -695,9 +695,35 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, transparent 70%);
+            /* Default light mode: use rainbow watercolor palette */
+            background: radial-gradient(circle, var(--wc-pink) 0%, transparent 70%);
             animation: sparkle 3s ease-in-out infinite;
             pointer-events: none;
+        }
+
+        /* Rainbow sparkle colors for light mode */
+        .sparkle[data-color="orange"] {
+            background: radial-gradient(circle, var(--wc-orange) 0%, transparent 70%);
+        }
+        .sparkle[data-color="yellow"] {
+            background: radial-gradient(circle, var(--wc-yellow) 0%, transparent 70%);
+        }
+        .sparkle[data-color="green"] {
+            background: radial-gradient(circle, var(--wc-green) 0%, transparent 70%);
+        }
+        .sparkle[data-color="blue"] {
+            background: radial-gradient(circle, var(--wc-blue) 0%, transparent 70%);
+        }
+        .sparkle[data-color="purple"] {
+            background: radial-gradient(circle, var(--wc-purple) 0%, transparent 70%);
+        }
+        .sparkle[data-color="pink"] {
+            background: radial-gradient(circle, var(--wc-pink) 0%, transparent 70%);
+        }
+
+        /* Dark mode: use white sparkles */
+        [data-theme="dark"] .sparkle {
+            background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, transparent 70%);
         }
 
         .sparkle-container {
@@ -1911,12 +1937,12 @@
         <div class="hero-glow"></div>
         
         <div class="sparkle-container" aria-hidden="true">
-            <div class="sparkle" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
-            <div class="sparkle" style="top: 25%; left: 85%; animation-delay: 0.5s;"></div>
-            <div class="sparkle" style="top: 60%; left: 5%; animation-delay: 1s;"></div>
-            <div class="sparkle" style="top: 70%; left: 90%; animation-delay: 1.5s;"></div>
-            <div class="sparkle" style="top: 40%; left: 15%; animation-delay: 2s;"></div>
-            <div class="sparkle" style="top: 80%; left: 80%; animation-delay: 2.5s;"></div>
+            <div class="sparkle" data-color="orange" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
+            <div class="sparkle" data-color="pink" style="top: 25%; left: 85%; animation-delay: 0.5s;"></div>
+            <div class="sparkle" data-color="blue" style="top: 60%; left: 5%; animation-delay: 1s;"></div>
+            <div class="sparkle" data-color="yellow" style="top: 70%; left: 90%; animation-delay: 1.5s;"></div>
+            <div class="sparkle" data-color="green" style="top: 40%; left: 15%; animation-delay: 2s;"></div>
+            <div class="sparkle" data-color="purple" style="top: 80%; left: 80%; animation-delay: 2.5s;"></div>
         </div>
         
         <div class="hero-content">
@@ -2017,10 +2043,10 @@
         <div class="quote-bg"></div>
         <div class="quote-glow"></div>
         <div class="sparkle-container" aria-hidden="true">
-            <div class="sparkle" style="top: 20%; left: 20%; animation-delay: 0.3s;"></div>
-            <div class="sparkle" style="top: 30%; left: 75%; animation-delay: 0.8s;"></div>
-            <div class="sparkle" style="top: 70%; left: 25%; animation-delay: 1.3s;"></div>
-            <div class="sparkle" style="top: 60%; left: 80%; animation-delay: 1.8s;"></div>
+            <div class="sparkle" data-color="purple" style="top: 20%; left: 20%; animation-delay: 0.3s;"></div>
+            <div class="sparkle" data-color="orange" style="top: 30%; left: 75%; animation-delay: 0.8s;"></div>
+            <div class="sparkle" data-color="green" style="top: 70%; left: 25%; animation-delay: 1.3s;"></div>
+            <div class="sparkle" data-color="blue" style="top: 60%; left: 80%; animation-delay: 1.8s;"></div>
         </div>
         <div class="section-content">
             <div class="quote-block reveal">
@@ -2387,6 +2413,12 @@
         function createSparkle(container) {
             const sparkle = document.createElement('div');
             sparkle.className = 'sparkle';
+            
+            // Assign random rainbow color for light mode (will be overridden by dark mode CSS if needed)
+            const colors = ['orange', 'yellow', 'green', 'blue', 'purple', 'pink'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            sparkle.setAttribute('data-color', randomColor);
+            
             sparkle.style.left = Math.random() * 100 + '%';
             sparkle.style.top = Math.random() * 100 + '%';
             sparkle.style.animationDelay = Math.random() * 3 + 's';
