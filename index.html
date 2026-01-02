@@ -821,64 +821,53 @@
             --swatch-base: var(--wc-pink);
             --swatch-accent: var(--wc-orange);
             position: relative;
-            overflow: visible;
-            background: transparent;
-            padding: 2.5rem 2.25rem;
+            overflow: hidden;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.55), transparent 45%),
+                radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.35), transparent 40%),
+                linear-gradient(135deg,
+                    color-mix(in srgb, var(--swatch-base) 78%, #ffffff 22%),
+                    color-mix(in srgb, var(--swatch-accent) 80%, #ffffff 20%));
+            padding: 2.25rem;
+            border-radius: 1.25rem;
+            border: 1px solid color-mix(in srgb, var(--swatch-accent) 30%, transparent 70%);
+            box-shadow: 0 12px 30px rgba(45, 27, 23, 0.06), 0 0 0 10px color-mix(in srgb, var(--swatch-base) 10%, transparent);
             text-align: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             isolation: isolate;
-            filter: drop-shadow(0 14px 28px rgba(45, 27, 23, 0.06));
         }
 
         .feature-card::before,
         .feature-card::after {
             content: '';
             position: absolute;
-            inset: -12% -10%;
+            inset: -10%;
+            border-radius: 30% 40% 35% 45%;
+            mix-blend-mode: multiply;
+            opacity: 0.18;
             z-index: -1;
-            transform: rotate(-1.5deg);
-            border-radius: 38% 44% 36% 42%;
-        }
-
-        .feature-card::before {
-            background:
-                linear-gradient(105deg,
-                    color-mix(in srgb, var(--swatch-base) 78%, #ffffff 22%) 0%,
-                    color-mix(in srgb, var(--swatch-accent) 88%, #ffffff 12%) 55%,
-                    color-mix(in srgb, var(--swatch-accent) 65%, #ffffff 35%) 100%),
-                linear-gradient(90deg,
-                    rgba(255, 255, 255, 0.38) 0%,
-                    rgba(255, 255, 255, 0.12) 14%,
-                    transparent 28%,
-                    rgba(255, 255, 255, 0.16) 42%,
-                    transparent 60%,
-                    rgba(255, 255, 255, 0.2) 76%,
-                    transparent 92%);
-            background-blend-mode: screen, normal;
-            clip-path: polygon(2% 10%, 8% 4%, 18% 8%, 30% 3%, 45% 9%, 60% 4%, 72% 12%, 84% 6%, 96% 12%, 98% 26%, 96% 40%, 98% 54%, 96% 67%, 98% 78%, 95% 90%, 84% 94%, 72% 88%, 60% 96%, 44% 92%, 30% 96%, 18% 90%, 8% 96%, 3% 84%, 4% 68%, 2% 54%, 4% 40%, 3% 26%);
-            box-shadow:
-                0 25px 45px rgba(45, 27, 23, 0.15),
-                0 0 0 8px color-mix(in srgb, var(--swatch-base) 12%, transparent 88%);
+            background: radial-gradient(circle at 30% 35%,
+                    color-mix(in srgb, var(--swatch-base) 80%, #ffffff 20%),
+                    transparent 50%),
+                radial-gradient(circle at 70% 65%,
+                    color-mix(in srgb, var(--swatch-accent) 80%, #ffffff 20%),
+                    transparent 50%);
+            filter: blur(8px);
         }
 
         .feature-card::after {
-            inset: -18% -16%;
-            transform: rotate(2deg);
-            opacity: 0.6;
-            background:
-                radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--swatch-accent) 65%, transparent) 0%, transparent 40%),
-                radial-gradient(circle at 78% 32%, color-mix(in srgb, var(--swatch-base) 60%, transparent) 0%, transparent 38%),
-                radial-gradient(circle at 34% 72%, color-mix(in srgb, var(--swatch-accent) 50%, transparent) 0%, transparent 36%),
-                radial-gradient(circle at 76% 70%, color-mix(in srgb, var(--swatch-base) 55%, transparent) 0%, transparent 42%),
-                radial-gradient(circle at 12% 62%, rgba(255, 255, 255, 0.32) 0%, transparent 24%),
-                radial-gradient(circle at 92% 48%, rgba(255, 255, 255, 0.24) 0%, transparent 22%);
-            mix-blend-mode: multiply;
-            filter: blur(3px);
+            inset: -12%;
+            border-radius: 45% 35% 50% 38%;
+            mix-blend-mode: soft-light;
+            opacity: 0.3;
+            background: repeating-radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.35),
+                    rgba(255, 255, 255, 0.15) 18px,
+                    transparent 35px,
+                    transparent 42px);
         }
 
         .feature-card:hover {
-            transform: translateY(-10px) rotate(-0.6deg);
-            filter: drop-shadow(0 18px 36px rgba(45, 27, 23, 0.14));
+            transform: translateY(-8px) rotate(-0.4deg);
+            box-shadow: 0 18px 40px rgba(45, 27, 23, 0.12), 0 0 0 14px color-mix(in srgb, var(--swatch-base) 14%, transparent);
         }
 
         .feature-icon {
@@ -899,28 +888,28 @@
         }
 
         .feature-card:nth-child(1) {
-            --swatch-base: #c9b5f3;
-            --swatch-accent: #a9c5f8;
+            --swatch-base: #e8d5f0;
+            --swatch-accent: #cbd9f4;
         }
 
         .feature-card:nth-child(2) {
-            --swatch-base: #a7d9fb;
-            --swatch-accent: #8ce6db;
+            --swatch-base: #cde8f7;
+            --swatch-accent: #b6e4e8;
         }
 
         .feature-card:nth-child(3) {
-            --swatch-base: #c0f0bd;
-            --swatch-accent: #96e6ae;
+            --swatch-base: #d9f1d5;
+            --swatch-accent: #c6e5b9;
         }
 
         .feature-card:nth-child(4) {
-            --swatch-base: #ffe5a9;
-            --swatch-accent: #ffd08a;
+            --swatch-base: #fff1c9;
+            --swatch-accent: #ffe0a3;
         }
 
         .feature-card:nth-child(5) {
-            --swatch-base: #ffc2b3;
-            --swatch-accent: #ff9fb0;
+            --swatch-base: #ffd9c7;
+            --swatch-accent: #f3b4b3;
         }
 
         .feature-card:nth-child(1) .feature-icon { background: linear-gradient(135deg, var(--wc-purple), var(--wc-blue)); }
