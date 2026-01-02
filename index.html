@@ -942,29 +942,51 @@
         }
 
         .feature-image-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-light);
-            border-radius: 1.25rem;
-            padding: 0.85rem;
-            box-shadow: var(--shadow-lg);
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
-            overflow: hidden;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            transition: transform 0.35s ease;
+            overflow: visible;
         }
 
         .feature-image-card img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 0.9rem;
-            box-shadow: inset 0 0 0 1px rgba(233, 167, 156, 0.25);
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            outline: none;
+            filter: none;
         }
 
         .feature-image-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-4px);
+        }
+
+        [data-theme="dark"] .feature-image-card {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+
+        [data-theme="dark"] .feature-image-card img {
+            box-shadow: none;
+            border: none;
+            filter: none;
+        }
+
+        [data-theme="dark"] .feature-image-card:hover {
+            box-shadow: none;
         }
 
         /* Quote Section */
