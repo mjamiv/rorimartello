@@ -930,6 +930,32 @@
             color: var(--text-muted);
         }
 
+        .feature-image-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 1.25rem;
+            padding: 0.85rem;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            overflow: hidden;
+        }
+
+        .feature-image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0.9rem;
+            box-shadow: inset 0 0 0 1px rgba(233, 167, 156, 0.25);
+        }
+
+        .feature-image-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
         /* Quote Section */
         .quote-section {
             position: relative;
@@ -2062,6 +2088,8 @@
                 <p class="section-subtitle">A heartfelt resource for adoptive families, educators, and caregivers</p>
             </div>
             <div class="features-grid">
+                <!--
+                Original feature cards preserved for future use:
                 <div class="feature-card reveal reveal-delay-1">
                     <div class="feature-icon">💜</div>
                     <h3 class="feature-title">Adoption-Affirming</h3>
@@ -2087,6 +2115,22 @@
                     <h3 class="feature-title">Meaningful Themes</h3>
                     <p class="feature-text">Addresses belonging, attachment, and family formation</p>
                 </div>
+                -->
+                <figure class="feature-image-card reveal reveal-delay-1">
+                    <img src="IMG/1_purplecard.png" alt="Illustrated purple card highlighting the book's heartfelt theme">
+                </figure>
+                <figure class="feature-image-card reveal reveal-delay-2">
+                    <img src="IMG/2_bluecard.png" alt="Illustrated blue card showcasing the book's gentle storytelling">
+                </figure>
+                <figure class="feature-image-card reveal reveal-delay-3">
+                    <img src="IMG/3_greencard.png" alt="Illustrated green card reflecting the book's family focus">
+                </figure>
+                <figure class="feature-image-card reveal reveal-delay-4">
+                    <img src="IMG/4_yellowcard.png" alt="Illustrated yellow card emphasizing the author's authentic voice">
+                </figure>
+                <figure class="feature-image-card reveal reveal-delay-5">
+                    <img src="IMG/5_redcard.png" alt="Illustrated red card underscoring the book's meaningful themes">
+                </figure>
             </div>
         </div>
     </section>
