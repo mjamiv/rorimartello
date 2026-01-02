@@ -1154,12 +1154,22 @@
             height: 180px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--wc-pink), var(--wc-purple), var(--wc-blue), var(--wc-green), var(--wc-yellow));
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 80px;
             box-shadow: var(--shadow-lg);
             transition: transform 0.4s ease;
+            overflow: hidden;
+        }
+
+        .author-image::after {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border-radius: 50%;
+            background: url('IMG/headshot.PNG') center/cover no-repeat;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
         }
 
         .author-card:hover .author-image {
@@ -2266,7 +2276,6 @@
             </div>
             <div class="author-card reveal">
                 <div class="author-image" aria-label="Author photo"></div>
-                    <img src = "IMG/headshot.png" alt="headshot" >
                 <div class="author-info">
                     <h3 class="author-name">Dr. Rori Martello</h3>
                     <p class="author-bio">Rori Martello is a New York–based mom, literacy specialist, & educator with nearly twenty years of experience working with children, teachers, and families. Drawing from her own adoption journey, she wrote <em>I Carried You in My Heart</em> to provide a gentle, loving resource for children, parents, teachers, and caregivers. This is her debut picture book.</p>
