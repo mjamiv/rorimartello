@@ -1129,6 +1129,269 @@
             color: var(--text-muted);
         }
 
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg,
+                var(--wc-purple) 0%,
+                var(--wc-pink) 50%,
+                var(--wc-orange) 100%);
+            padding: 4rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .newsletter-card {
+            background-color: var(--bg-primary);
+            padding: 3rem 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 60px rgba(45, 27, 23, 0.15);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .newsletter-title {
+            font-family: var(--font-headline);
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .newsletter-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Form Styles */
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-primary);
+            background-color: var(--bg-secondary);
+            border: 2px solid var(--border-light);
+            border-radius: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
+        }
+
+        .form-input:hover,
+        .form-textarea:hover {
+            border-color: var(--border-default);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: var(--accent-primary);
+            background-color: var(--bg-primary);
+            box-shadow: 0 0 0 3px rgba(212, 136, 125, 0.1);
+        }
+
+        .form-input.error {
+            border-color: #DC2626;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .error-message {
+            display: block;
+            color: #DC2626;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            min-height: 1.25rem;
+        }
+
+        .char-counter {
+            position: absolute;
+            bottom: -1.5rem;
+            right: 0;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        /* Submit Button */
+        .newsletter-submit {
+            margin-top: 0.5rem;
+            width: 100%;
+            position: relative;
+        }
+
+        .btn-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        .spinner circle {
+            stroke-dasharray: 125;
+            stroke-dashoffset: 0;
+            animation: dash 1.5s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes dash {
+            0% { stroke-dashoffset: 125; }
+            50% { stroke-dashoffset: 31.25; }
+            100% { stroke-dashoffset: 125; }
+        }
+
+        /* Form Messages */
+        .form-message {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 1rem;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-message {
+            background: linear-gradient(135deg,
+                rgba(217, 236, 200, 0.3),
+                rgba(200, 226, 239, 0.3));
+            border: 2px solid var(--wc-green);
+        }
+
+        .success-message h3 {
+            color: #059669;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-message p {
+            color: var(--text-secondary);
+        }
+
+        .error-message-box {
+            background: rgba(254, 240, 205, 0.4);
+            border: 2px solid #FEF0CD;
+        }
+
+        .error-message-box h3 {
+            color: #DC2626;
+            margin-bottom: 0.5rem;
+        }
+
+        .error-message-box p {
+            color: var(--text-secondary);
+        }
+
+        .message-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-privacy {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        /* Dark Mode Adjustments for Newsletter */
+        [data-theme="dark"] .newsletter-card {
+            background-color: var(--bg-secondary);
+            border-color: var(--border-default);
+        }
+
+        [data-theme="dark"] .form-input,
+        [data-theme="dark"] .form-textarea {
+            background-color: var(--bg-tertiary);
+        }
+
+        [data-theme="dark"] .success-message {
+            background: rgba(217, 236, 200, 0.1);
+        }
+
+        [data-theme="dark"] .error-message-box {
+            background: rgba(254, 240, 205, 0.1);
+        }
+
         /* Author Section */
         .author-card {
             display: grid;
@@ -1635,6 +1898,29 @@
                 font-size: 0.8125rem;
             }
 
+            /* Newsletter section mobile */
+            .newsletter-section {
+                padding: 3rem 1rem;
+            }
+
+            .newsletter-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .newsletter-title {
+                font-size: 1.5rem;
+            }
+
+            .newsletter-subtitle {
+                font-size: 1rem;
+            }
+
+            .form-input,
+            .form-textarea {
+                padding: 0.75rem 1rem;
+                font-size: 0.9375rem;
+            }
+
             /* Author section mobile */
             .author-card {
                 padding: 2rem 1.5rem;
@@ -2034,6 +2320,7 @@
             <ul class="navbar-nav" id="nav-menu">
                 <li><a href="#about" data-nav>About</a></li>
                 <li><a href="#reviews" data-nav>Reviews</a></li>
+                <li><a href="#newsletter" data-nav>Newsletter</a></li>
                 <li><a href="#author" data-nav>Author</a></li>
                 <li><a href="#details" data-nav>Details</a></li>
                 <li><a href="#contact" data-nav>Contact</a></li>
@@ -2263,6 +2550,82 @@
             </div>
             <div style="text-align: center; margin-top: 2.5rem;" class="reveal">
                 <a href="https://www.amazon.com/I-Carried-You-my-Heart/dp/9699592621/" target="_blank" rel="noopener" class="btn btn-secondary">Read All Reviews on Amazon →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="section-content">
+            <div class="newsletter-card reveal">
+                <div class="newsletter-header">
+                    <div class="newsletter-icon" aria-hidden="true">💌</div>
+                    <h2 class="newsletter-title">Stay Connected</h2>
+                    <p class="newsletter-subtitle">Get updates about new books, readings, and adoption resources</p>
+                </div>
+
+                <form
+                    id="newsletterForm"
+                    action="https://formspree.io/f/meeopqzn"
+                    method="POST"
+                    class="newsletter-form"
+                    novalidate
+                >
+                    <div class="form-group">
+                        <label for="email" class="visually-hidden">Email address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            required
+                            class="form-input"
+                            aria-required="true"
+                        >
+                        <span class="error-message" id="emailError" role="alert"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="note" class="form-label">Message (optional)</label>
+                        <textarea
+                            id="note"
+                            name="note"
+                            placeholder="Share what interests you about updates..."
+                            rows="3"
+                            class="form-textarea"
+                            maxlength="500"
+                        ></textarea>
+                        <span class="char-counter" id="charCounter">0/500</span>
+                    </div>
+
+                    <!-- Honeypot field for spam protection -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <button type="submit" class="btn btn-primary btn-lg newsletter-submit">
+                        <span class="btn-text">Subscribe</span>
+                        <span class="btn-loader" style="display: none;">
+                            <svg class="spinner" viewBox="0 0 50 50">
+                                <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="4"></circle>
+                            </svg>
+                        </span>
+                    </button>
+                </form>
+
+                <!-- Success message (hidden by default) -->
+                <div class="form-message success-message" id="successMessage" style="display: none;" role="status">
+                    <div class="message-icon">✓</div>
+                    <h3>Thank you for subscribing!</h3>
+                    <p>You'll hear from us soon with updates and resources.</p>
+                </div>
+
+                <!-- Error message (hidden by default) -->
+                <div class="form-message error-message-box" id="errorMessage" style="display: none;" role="alert">
+                    <div class="message-icon">⚠</div>
+                    <h3>Oops! Something went wrong</h3>
+                    <p>Please try again or contact us directly at <a href="mailto:rorimartello@gmail.com">rorimartello@gmail.com</a></p>
+                </div>
+
+                <p class="newsletter-privacy">We respect your privacy. Unsubscribe anytime.</p>
             </div>
         </div>
     </section>
@@ -2598,7 +2961,7 @@
             const scrolled = window.scrollY;
             const heroBg = document.querySelector('.hero-bg');
             const heroGlow = document.querySelector('.hero-glow');
-            
+
             if (heroBg && scrolled < window.innerHeight) {
                 heroBg.style.transform = `translateY(${scrolled * 0.3}px)`;
             }
@@ -2606,6 +2969,126 @@
                 heroGlow.style.transform = `translateX(-50%) translateY(${scrolled * 0.2}px)`;
             }
         });
+
+        // Newsletter Form Handler
+        (function() {
+            const form = document.getElementById('newsletterForm');
+            const emailInput = document.getElementById('email');
+            const noteInput = document.getElementById('note');
+            const emailError = document.getElementById('emailError');
+            const charCounter = document.getElementById('charCounter');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const submitBtn = form ? form.querySelector('.newsletter-submit') : null;
+            const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+            const btnLoader = submitBtn ? submitBtn.querySelector('.btn-loader') : null;
+
+            // Character counter for note field
+            if (noteInput && charCounter) {
+                noteInput.addEventListener('input', function() {
+                    const length = this.value.length;
+                    charCounter.textContent = `${length}/500`;
+
+                    if (length > 450) {
+                        charCounter.style.color = 'var(--accent-primary)';
+                    } else {
+                        charCounter.style.color = 'var(--text-muted)';
+                    }
+                });
+            }
+
+            // Email validation
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            // Real-time email validation
+            if (emailInput && emailError) {
+                emailInput.addEventListener('blur', function() {
+                    if (this.value && !validateEmail(this.value)) {
+                        this.classList.add('error');
+                        emailError.textContent = 'Please enter a valid email address';
+                    } else {
+                        this.classList.remove('error');
+                        emailError.textContent = '';
+                    }
+                });
+
+                emailInput.addEventListener('input', function() {
+                    if (this.classList.contains('error') && validateEmail(this.value)) {
+                        this.classList.remove('error');
+                        emailError.textContent = '';
+                    }
+                });
+            }
+
+            // Form submission
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+
+                    // Validate email
+                    const email = emailInput.value.trim();
+                    if (!email) {
+                        emailInput.classList.add('error');
+                        emailError.textContent = 'Email is required';
+                        emailInput.focus();
+                        return;
+                    }
+
+                    if (!validateEmail(email)) {
+                        emailInput.classList.add('error');
+                        emailError.textContent = 'Please enter a valid email address';
+                        emailInput.focus();
+                        return;
+                    }
+
+                    // Show loading state
+                    submitBtn.disabled = true;
+                    btnText.style.display = 'none';
+                    btnLoader.style.display = 'block';
+
+                    try {
+                        // Submit to Formspree
+                        const formData = new FormData(form);
+                        const response = await fetch(form.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (response.ok) {
+                            // Success - hide form, show success message
+                            form.style.display = 'none';
+                            successMessage.style.display = 'block';
+
+                            // Track conversion (optional - if you add analytics later)
+                            if (typeof gtag !== 'undefined') {
+                                gtag('event', 'newsletter_signup', {
+                                    'event_category': 'engagement',
+                                    'event_label': 'newsletter'
+                                });
+                            }
+                        } else {
+                            // Server error
+                            throw new Error('Server error');
+                        }
+                    } catch (error) {
+                        // Show error message
+                        errorMessage.style.display = 'block';
+                        console.error('Form submission error:', error);
+                    } finally {
+                        // Reset button state
+                        submitBtn.disabled = false;
+                        btnText.style.display = 'block';
+                        btnLoader.style.display = 'none';
+                    }
+                });
+            }
+        })();
     </script>
 </body>
     
